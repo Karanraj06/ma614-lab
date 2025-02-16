@@ -1,9 +1,10 @@
 import numpy as np
+from numpy.typing import NDArray
 
 
 def gaussian_elimination(
-    A: np.ndarray[np.float64], b: np.ndarray[np.float64]
-) -> np.ndarray[np.float64]:
+    A: NDArray[np.float64], b: NDArray[np.float64]
+) -> NDArray[np.float64]:
     """
     assumptions
         rank(A) = rank([A|B]) = n (number of unknowns/columns) - unique solution

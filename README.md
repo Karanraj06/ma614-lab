@@ -1,2 +1,2 @@
 # ma614-lab
-MA614 - APPLIED LINEAR ALGEBRA AND MATRIX ANALYSIS Lab Codes
+MA614 Applied Linear Algebra and Matrix Analysis Lab Codes
