@@ -49,6 +49,20 @@ def back_substitution(
     return x
 
 
+def ldv_decomposition(A: NDArray[np.float64]):
+    """Performs LDV Decomposition (A = LDV)"""
+    L, U = lu_decomposition(A)
+    D = np.diag(np.diag(U))
+    V = np.zeros_like(A, dtype=np.float64)
+
+    for i in range(A.shape[0]):
+        if D[i, i] == 0:
+            raise ValueError("Singular matrix detected.")
+        V[i, :] = U[i, :] / D[i, i]
+
+    return L, D, V
+
+
 A = np.array([[2, 1, -1], [-3, -1, 2], [-2, 1, 2]], dtype=np.float64)
 b = np.array([8, -11, -3], dtype=np.float64)
 
@@ -59,3 +73,8 @@ x = back_substitution(U, y)
 print("L:\n", L)
 print("U:\n", U)
 print("Solution x:", x)
+
+L_ldv, D_ldv, V_ldv = ldv_decomposition(A)
+print("L (LDV):\n", L_ldv)
+print("D:\n", D_ldv)
+print("V:\n", V_ldv)
