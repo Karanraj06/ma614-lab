@@ -49,7 +49,9 @@ def back_substitution(
     return x
 
 
-def ldv_decomposition(A: NDArray[np.float64]):
+def ldv_decomposition(
+    A: NDArray[np.float64],
+) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]:
     """Performs LDV Decomposition (A = LDV)"""
     L, U = lu_decomposition(A)
     D = np.diag(np.diag(U))
